@@ -1,9 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { View, Text, BackHandler, StyleSheet ,Button, TouchableOpacity} from 'react-native';
+import { View, Text, BackHandler, StyleSheet ,Button, TouchableOpacity,StatusBar} from 'react-native';
 import { WebView } from 'react-native-webview';
-import { StatusBar } from 'expo-status-bar';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import * as Progress from 'react-native-progress'; // Progress bar for loading
+import { getStatusBarHeight } from "react-native-status-bar-height";
 
 const Index = () => {
   const webviewRef = useRef(null); // Reference to WebView
@@ -38,13 +38,13 @@ const Index = () => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1,paddingTop:getStatusBarHeight() }}>
  
  <StatusBar
-    translucent
-    barStyle="dark-content"
-    backgroundColor="rgba(255, 255, 255, 0)" // Transparent white color
-/>
+        translucent
+        barStyle="dark-content"
+        backgroundColor="rgba(255, 255, 255, 0)"
+      />
 
       {hasError ? (
         // Display custom error message and retry button
