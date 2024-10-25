@@ -38,13 +38,8 @@ const Index = () => {
   };
 
   return (
-    <View style={{ flex: 1,paddingTop:getStatusBarHeight() }}>
+    <View style={{ flex: 1,paddingTop:getStatusBarHeight(),backgroundColor:"#701cdd"}}>
  
- <StatusBar
-        translucent
-        barStyle="dark-content"
-        backgroundColor="rgba(255, 255, 255, 0)"
-      />
 
       {hasError ? (
         // Display custom error message and retry button
@@ -59,7 +54,7 @@ const Index = () => {
       ) : (
         <View style={{ flex: 1 }}>
           {/* Show progress bar at the top */}
-          {progress < 1 && <Progress.Bar progress={progress} width={null} color="#555" height={3} />}
+          {progress < 1 && <Progress.Bar progress={progress} width={null} color="#fff" height={3} />}
 
           <WebView
             ref={webviewRef} // Reference to the WebView
